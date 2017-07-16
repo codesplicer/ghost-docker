@@ -17,7 +17,9 @@ RUN set -x \
     && gosu nobody true
 
 ENV GHOST_SOURCE /usr/src/ghost
-WORKDIR $GHOST_SOURCE
+WORKDIR $GHOST_SOURCEd
+RUN mkdir -p "$GHOST_SOURCE" \
+    && chown -R user:user "$GHOST_SOURCE"
 
 ENV GHOST_VERSION 0.11.10
 
